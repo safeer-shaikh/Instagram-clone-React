@@ -1,3 +1,6 @@
 .body{
     background-color: #FAFAFA;
 }
+.container{
+    max-width: 960px;
+}
