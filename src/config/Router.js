@@ -4,11 +4,14 @@ import Login from '../containers/Login/Login'
 import Home from '../containers/Home/Home'
 
 
-export default function AppRouter(){
-    return(
-        <Router>
-            <Route exact path="/" component={Login} />
-            <Route exact path='/home' component={Home}/>
-        </Router>
-    )
+class AppRouter extends React.Component{
+    render(){
+        return(
+            <Router>
+                <Route exact path="/" component={Login} />
+                <Route exact path='/home' component={Home}/>
+            </Router>
+        )
+    }
 }
+export default AppRouter;

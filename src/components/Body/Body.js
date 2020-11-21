@@ -1,10 +1,16 @@
 import React from 'react'
 import './body.css'
+import Post from '../Post/Post'
 
-export default function Body(){
-    return(
-        <div>
-            
-        </div>
-    )
+class Body extends React.Component{
+    render(){
+        return(
+            <div>
+                <div>
+                    <Post />
+                </div>
+            </div>
+        )
+    }
 }
+export default Body;    
