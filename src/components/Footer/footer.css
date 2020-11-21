@@ -1,0 +1,17 @@
+.footer ul{
+    list-style-type: none ;
+    display: inline-flex;
+}
+.footer ul li{
+    padding: 0px 7px;
+    font-size: 13px;
+}
+.footer ul li a{
+    color: #8E8E8E;
+}
+.footer ul li a:hover{
+    text-decoration: none;
+}
+.footer p{
+    color: #8e8e8e;
+}
