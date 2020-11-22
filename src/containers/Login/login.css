@@ -1,4 +1,4 @@
-.body{
+.body1{
     display: flex;
     padding: 32px;
 }
@@ -9,12 +9,12 @@
     height: 620px;
 }
 
-.right_div{
+.right_div1{
     border: 1px solid #dbdbdb;
     padding: 0px;
     margin-top: 25%;
 }
-.right_sub_div div{
+.right_sub_div1 div{
     margin-top: 20px;
 }
 .logo img{
@@ -46,4 +46,93 @@
 }
 .create_account button:focus{
     outline: none;
+}
+.right_div2{
+    padding: 0px;
+    margin-top: 5%;
+}
+.right_div2 div{
+    margin-top: 10px;
+}
+.right_sub_div2{
+    border: 1px solid #dbdbdb;
+    padding: 0px 20px;
+}
+
+.logo1{
+    padding: 25px 100px;
+}
+.inputs input{
+    width: 90%;
+    height: 40px;
+    border: 1px solid #dbdbdb;
+    background-color: #fafafa;
+}
+.inputs input:focus{
+    outline: none;
+    border: 1px solid gray;
+}
+.inputs input::-webkit-input-placeholder{
+    color: #8e8e8e;
+    font-size: 13px;
+}
+.login_btn button{
+    width: 90%;
+    border: 0px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    background-color:#0095F6;
+    font-weight: 500;
+}
+
+.partitionOR span{
+    color: #dbdbdb;
+}
+.to_facebook_btn{
+    margin-top: 40px;
+}
+.to_facebook_btn button{
+    border: 0px solid #fff;
+    background-color: #fff;
+    color: #385185;
+    font-size: 15px;
+    font-weight: 500;
+}
+.to_facebook_btn i{
+    padding-right: 10px;
+    font-size: 20px;
+}
+.forgot_pass a{
+    color: #00376B;
+    font-size: 12px;    
+}
+.forgot_pass a:hover{
+    text-decoration: none;
+}
+.container-tm{
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+}
+.container-tm div{
+    margin-top: 0px !important;
+    padding: 20px;
+}
+.container-tm span{
+    font-size: 15px;
+}
+.container-tm a{
+    font-style: 15px;
+    font-weight: 500;
+}
+.store_btn{
+    margin-top: 20px !important;
+}
+.store_btn button{
+    border: 0px solid #fff;
+    background-color: #fff;
+}
+@media (max-width: 875px){
+    .logo1{
+        display: none;
+    }
 }
