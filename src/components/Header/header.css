@@ -51,3 +51,9 @@
 .icons button:focus{
     outline: none;
 }
+.profile_picture{
+    margin-top: 5px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}

@@ -6,6 +6,8 @@ import mobileImage from '../../images/mobile.png'
 import logoImage from '../../images/logo.png'
 import googlePlay from '../../images/googlestore.png'
 import appStore from '../../images/appstore.png'
+import {connect} from 'react-redux'
+import { set_data, facebook_login } from '../../store/Action'
 
 class Login extends React.Component{
     constructor(){
@@ -30,7 +32,7 @@ class Login extends React.Component{
                                         <img src={logoImage} alt='logo' />
                                     </div>
                                     <div className='fb_login'>
-                                        <button>
+                                        <button onClick={()=>this.props.facebook_login(this.props.history)}>
                                             <i class="fa fa-facebook-f"></i>
                                             Log in with Facebook
                                         </button>
@@ -105,4 +107,11 @@ class Login extends React.Component{
         )
     }
 }
-export default Login;
+const mapStateToProps = (state) => ({
+    users: state.users
+})
+const mapDispatchToProps = (dispatch) => ({
+    // set_data: ()=> dispatch(set_data()),
+    facebook_login: (history)=> dispatch(facebook_login(history)),
+})
+export default connect(mapStateToProps,mapDispatchToProps)(Login);

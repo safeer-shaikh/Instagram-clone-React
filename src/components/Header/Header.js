@@ -2,9 +2,19 @@ import React from 'react'
 import './header.css'
 import { Link } from 'react-router-dom'
 import logoImage from '../../images/logo.png'
+import {get_users} from '../../store/Action'
+import {connect} from 'react-redux'
+import firebase from '../../config/Firebase'
 
 class Header extends React.Component{
+
+    componentDidMount(){
+        this.props.get_users()
+    }
+
     render(){
+        let user = this.props.current_user
+        console.log(user.name)
         return(
             <div className='container-fluid'>
                 <div className='container'>
@@ -32,7 +42,7 @@ class Header extends React.Component{
                                 <button><i style={{fontSize: 24,marginTop: 5,color: "#bdbdbd",}} class="fa fa-heart"></i></button>
                             </div>
                             <div>
-                                <button><img /></button>
+                                <button><img className='profile_picture' src={user.profile} alt='profile picture' width='30' height='30' /></button>
                             </div>
                         </div>
                     </div>
@@ -41,4 +51,13 @@ class Header extends React.Component{
         )
     }
 }
-export default Header;
+const mapStateToProps = (state) => ({
+    current_user: state.current_user,
+    users: state.users
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    get_users: ()=> dispatch(get_users())
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(Header);
