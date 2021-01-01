@@ -19,6 +19,7 @@ const facebook_login = (history)=>{
             var token = result.credential.accessToken;
             // The signed-in user info.
             var user = result.user;
+            console.log(user)
             // ...
             let create_user = {
                 name: user.displayName,
@@ -26,7 +27,8 @@ const facebook_login = (history)=>{
                 profile: user.photoURL,
                 uid: user.uid
             }
-
+            console.log(create_user)
+            console.log(user.photoURL)
             firebase.database().ref('/').child(`users/${user.uid}`).set(create_user)
             .then(()=>{
                 dispatch({

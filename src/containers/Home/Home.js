@@ -4,6 +4,7 @@ import Header from '../../components/Header/Header.js'
 import {get_users} from '../../store/Action'
 import {connect} from 'react-redux'
 import firebase from '../../config/Firebase'
+import { yellow } from '@material-ui/core/colors'
 class Home extends React.Component{
 
     componentDidMount(){
@@ -11,9 +12,13 @@ class Home extends React.Component{
     }
 
     render(){
+        let user = this.props.current_user
+        console.log(user)
         return(
             <div className='body'>
                 <Header />
+                <div style={{backgroundColor: "yellow", width: '500px', height: "500px",}}>
+                </div>
             </div>
         )
     }

@@ -14,7 +14,6 @@ class Header extends React.Component{
 
     render(){
         let user = this.props.current_user
-        console.log(user.name)
         return(
             <div className='container-fluid'>
                 <div className='container'>
@@ -33,7 +32,7 @@ class Header extends React.Component{
                                 <button><i style={{fontSize: 30, }} class="fa fa-home"></i></button>
                             </div>
                             <div>
-                                <button><i style={{fontSize: 22, marginTop: 5,color: "#bdbdbd",}} class="fa fa-paper-plane"></i></button>
+                                <button><i  style={{fontSize: 26, marginTop: 4,color: "#bdbdbd",}} class="fa fa-comments"></i></button>
                             </div>
                             <div>
                                 <button><i style={{fontSize: 27,marginTop: 4,color: "#bdbdbd",}} class="fa fa-compass"></i></button>
