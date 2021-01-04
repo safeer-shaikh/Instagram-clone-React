@@ -1,6 +1,28 @@
 .body{
-    background-color: #FAFAFA;
+    background-color: #5c5b5b;
 }
 .container{
     max-width: 960px;
+}
+.post_div{
+    max-width: '610px';
+    border: '1px solid #DBDBDB';
+}
+.details_div{
+    max-width: '360px';
+    background-color: '#FAFAFA';
+}
+.footer_links{
+    list-style-type: none;
+    display: inline-block;
+    color: #DEDEDE;
+    font-size: 10px;
+    padding: 0px 4px;
+}
+.footer_links a{
+    color: #DEDEDE; 
+}
+.copyright{
+    color: #DEDEDE;
+    font-size: 13px;
 }

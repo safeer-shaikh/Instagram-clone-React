@@ -7,6 +7,11 @@ import {connect} from 'react-redux'
 import firebase from '../../config/Firebase'
 
 class Header extends React.Component{
+    constructor(){
+        super()
+        this.state = {
+        }
+    }
 
     componentDidMount(){
         this.props.get_users()
@@ -29,13 +34,13 @@ class Header extends React.Component{
                         </div>
                         <div className='col-sm-3 icons'>
                             <div>
-                                <button><i style={{fontSize: 30, }} class="fa fa-home"></i></button>
+                                <Link to='/home'><button><i style={{fontSize: 30, }} class="fa fa-home"></i></button></Link>
                             </div>
                             <div>
-                                <button><i  style={{fontSize: 26, marginTop: 4,color: "#bdbdbd",}} class="fa fa-comments"></i></button>
+                                <Link to='/chats'><button><i  style={{fontSize: 26, marginTop: 4,color: "#bdbdbd",}} class="fa fa-comments"></i></button></Link>
                             </div>
                             <div>
-                                <button><i style={{fontSize: 27,marginTop: 4,color: "#bdbdbd",}} class="fa fa-compass"></i></button>
+                                <Link to='/explore'><button><i style={{fontSize: 27,marginTop: 4,color: "#bdbdbd",}} class="fa fa-compass"></i></button></Link>
                             </div>
                             <div>
                                 <button><i style={{fontSize: 24,marginTop: 5,color: "#bdbdbd",}} class="fa fa-heart"></i></button>
