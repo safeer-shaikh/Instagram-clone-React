@@ -18,15 +18,15 @@ class Post extends React.Component{
                 <div>
                     <div className='full_post'>
                         <section className='above_picture'>
-                            <div>
+                            <div className='image_div'>
                                 <Link to="#">
                                      <img src={user.profile} alt="profile" width='40' height='40' />
                                 </Link>
                             </div>
-                            <div>
+                            <div className='name_div'>
                                 <Link to='#'>{user.name}</Link>
                             </div>
-                            <div>
+                            <div className='three_dots'>
                                 <Link to="#">
                                     <button>
                                         <i class="fa fa-ellipsis-h"></i>
@@ -37,7 +37,7 @@ class Post extends React.Component{
                         <div>
                             <img src={post1} alt='post' width='100%' height='100%' style={{objectFit: "contain",}}/>
                         </div>
-                        <section>
+                        <section className='like_com_share_btn'>
                             <div>
                                 <span>
                                     <button>

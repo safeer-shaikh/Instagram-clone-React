@@ -30,7 +30,7 @@ class Home extends React.Component{
                     <div className='post_div'>
                         <Post />
                     </div>
-                    <div className='details_div'>
+                    <div className='details_div' style={{backgroundColor: '#FAFAFA'}}>
                         <div>
                             <img src={user.profile} alt='profile picture' width='30' height='30'/>
                             <span>{user.name}</span>

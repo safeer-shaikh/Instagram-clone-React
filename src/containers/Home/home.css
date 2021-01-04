@@ -1,5 +1,5 @@
 .body{
-    background-color: #5c5b5b;
+    background-color: #FAFAFA;
 }
 .container{
     max-width: 960px;
@@ -9,7 +9,6 @@
     border: '1px solid #DBDBDB';
 }
 .details_div{
-    max-width: '360px';
     background-color: '#FAFAFA';
 }
 .footer_links{
