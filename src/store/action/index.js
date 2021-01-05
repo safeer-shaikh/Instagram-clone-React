@@ -60,7 +60,20 @@ const get_users = () =>{
         })
     }
 }
+const get_posts = () =>{
+    return (dispatch) => {
+        let posts = [];
+        firebase.database().ref('/').child('posts').on('child_added',(data)=>{
+            posts.push(data.val())
+        })
+        dispatch({
+            type: "SETFIREBASEPOSTS",
+            payload: posts
+        })
+    }
+}
 export {
     facebook_login,
     get_users,
+    get_posts,
 }

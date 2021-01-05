@@ -4,7 +4,7 @@
 .above_picture{
     display: flex;
     align-items: center;
-    width: 600px;
+    width: 620px;
     padding: 10px;
     border-bottom: 1px solid #dbdbdb;
 }

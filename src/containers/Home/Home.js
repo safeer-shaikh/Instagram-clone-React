@@ -6,6 +6,7 @@ import {get_users} from '../../store/Action'
 import {connect} from 'react-redux'
 import firebase from '../../config/Firebase'
 import { Link } from 'react-router-dom'
+import UploadBtn from '../../components/UploadBtn/UploadBtn'
 
 class Home extends React.Component{
 
@@ -31,13 +32,20 @@ class Home extends React.Component{
                         <Post />
                     </div>
                     <div className='details_div' style={{backgroundColor: '#FAFAFA'}}>
-                        <div>
-                            <img src={user.profile} alt='profile picture' width='30' height='30'/>
-                            <span>{user.name}</span>
-                            <span><Link to='/'>Switch</Link></span>
+                        <div style={{padding: "20px 27px"}}>
+                            <Link to='#'>
+                                <img src={user.profile} alt='profile picture' width='60' height='60' style={{borderRadius: 50}}/>
+                            </Link>
+                            <Link to='#' style={{marginLeft: 20, fontSize: 15, color: 'black', fontWeight: 600}}>
+                                <span >{user.name}</span>
+                            </Link>
+                            <UploadBtn />
+                            <Link to='/' style={{marginLeft: 250 ,textDecoration: "none", color: "#39ACF7",}}> 
+                                <span style={{marginLeft: 0, fontSize: 13, fontWeight: 600,}}>Switch</span>
+                            </Link>
                         </div>
                         <div>
-                            <ul style={{padding: 0}}>
+                            <ul style={{padding: 0, marginLeft: 20}}>
                                 {
                                     this.state.homeFooterLinks.map((v,i)=>{
                                         return(

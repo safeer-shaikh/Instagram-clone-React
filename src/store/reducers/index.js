@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
     users: [],
     current_user: {},
+    posts: [],
 }
 export default (state = INITIAL_STATE,action) => {
     // console.log('action==>',action)
@@ -14,6 +15,11 @@ export default (state = INITIAL_STATE,action) => {
             return ({
                 ...state,
                 users: action.payload
+            })
+        case 'SETFIREBASEPOSTS':
+            return({
+                ...state,
+                posts: action.payload
             })
     }
     return state;

@@ -24,7 +24,9 @@ class Header extends React.Component{
                 <div className='container'>
                     <div className='row align-items-center'>
                         <div className='col-md-4 logo'>
-                            <img src={logoImage} />
+                            <Link to='/home'>
+                                <img src={logoImage} />
+                            </Link>
                         </div>
                         <div className='col-md-4 input'>
                             <div style={{display: "flex"}}>
