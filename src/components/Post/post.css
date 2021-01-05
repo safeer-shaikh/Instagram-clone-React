@@ -1,6 +1,7 @@
 .full_post{
     border: 1px solid #dbdbdb;
     max-width: 620px;
+    margin-top: 60px;
 }
 .above_picture{
     display: flex;
@@ -9,7 +10,6 @@
     padding: 10px;
     border-bottom: 1px solid #dbdbdb;
     background-color: #ffffff;
-    border-right: 1px solid #dbdbdb ;
 }
 .image_div img{
     border-radius: 50%;

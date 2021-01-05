@@ -1,0 +1,18 @@
+.main{
+    background-color: #ffffff;
+    height: 83vh;
+}
+.left_section{
+    max-width: 355px;
+    border-bottom: 1px solid #dbdbdb;
+    border-right: 1px solid #dbdbdb;
+}
+.left_section div p{
+    margin: 20px 0px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+}
+.right_section{
+    background-color: tomato;
+}
