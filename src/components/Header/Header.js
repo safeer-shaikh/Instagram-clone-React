@@ -5,6 +5,7 @@ import logoImage from '../../images/logo.png'
 import {get_users} from '../../store/Action'
 import {connect} from 'react-redux'
 import firebase from '../../config/Firebase'
+import UploadBtn from '../UploadBtn/UploadBtn'
 
 class Header extends React.Component{
     constructor(){

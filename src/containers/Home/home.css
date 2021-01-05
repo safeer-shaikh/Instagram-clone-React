@@ -10,6 +10,9 @@
 }
 .details_div{
     background-color: '#FAFAFA';
+    position: fixed;
+    margin-left: 621px;
+    width: 350px;
 }
 .footer_links{
     list-style-type: none;

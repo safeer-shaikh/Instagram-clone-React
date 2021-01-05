@@ -24,12 +24,17 @@ class Post extends React.Component{
         console.log(this.props.posts)
         
         let user = this.props.current_user
+
+        const like = () =>{
+            document.getElementById('heart').style.color='red';
+        }
+
         return(
                 <div>
                     {
                     this.state.posts.map((v,i)=>{
                         return(
-                            <div style={{marginTop: 40}} className='full_post' key={i}>
+                            <div className='full_post' key={i}>
                         <section className='above_picture'>
                             <div className='image_div'>
                                 <Link to="#">
@@ -50,11 +55,23 @@ class Post extends React.Component{
                         <div>
                             <img src={v.imageUrl} alt='post' width='100%' height='100%' style={{objectFit: "contain",}}/>
                         </div>
+                        <section>
+                            <div>
+                                <span style={{marginLeft: 20,fontWeight: 600,}}>
+                                    <Link to='#' style={{color: '#303030 '}}>
+                                        {v.posterName}
+                                    </Link>
+                                </span>
+                                <span style={{marginLeft: 30}}>
+                                    {v.caption}
+                                </span>
+                            </div>
+                        </section>
                         <section className='like_com_share_btn'>
                             <div>
                                 <span>
-                                    <button>
-                                        <i class="fa fa-heart"></i>
+                                    <button onClick={like}>
+                                        <i id='heart' class="fa fa-heart"></i>
                                     </button>
                                 </span>
                                 <span>

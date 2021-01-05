@@ -1,0 +1,12 @@
+.upload_btn{
+    border: 0px solid transparent;
+    background-color: #fafafa;
+    outline: none;
+}
+.upload_btn i{
+    font-size: 20px;
+}
+.upload_div{
+    margin-top: 20px;
+    max-width: 100px;
+}

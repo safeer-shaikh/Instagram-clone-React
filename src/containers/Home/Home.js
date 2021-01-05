@@ -27,12 +27,12 @@ class Home extends React.Component{
         return(
             <div className='body'>
                 <Header />
-                <section className='container' style={{display: 'flex', padding: 0, marginTop: 30}}>
+                <section className='container' style={{display: 'flex', padding: 0, marginTop: 30, backgroundColor: '#fafafa'}}>
                     <div className='post_div'>
                         <Post />
                     </div>
                     <div className='details_div' style={{backgroundColor: '#FAFAFA'}}>
-                        <div style={{padding: "20px 27px"}}>
+                        <div style={{padding: "20px 27px",}}>
                             <Link to='#'>
                                 <img src={user.profile} alt='profile picture' width='60' height='60' style={{borderRadius: 50}}/>
                             </Link>

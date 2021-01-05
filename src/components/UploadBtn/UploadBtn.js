@@ -33,31 +33,9 @@ class UploadBtn extends React.Component{
             console.log(this.state.image)
         }
 
-        // const handleUpload = () =>{
-        //     var key = firebase.database().ref('/').child('posts').push().key
-        //     var data = {
-        //         imageName: this.state.image.name,
-
-        //         // imageUrl: firebase.database().ref('/').child(this.state.image).getDownloadURL(),
-        //         imageUid: key,
-        //         uploaderName: user.name,
-        //     }
-        //     firebase.database().ref('/').child(`posts/${key}`).set(data)
-        //     console.log('image upload successful')
-        //     console.log(data)
-        // }
-
         const handleUpload = () =>{
            firebase.storage().ref(`images/${this.state.image.name}`).put(this.state.image)
            console.log('image goes to storage')
-
-            // uploadTask.on('state_changed', (snapshot)=>{
-            //     const progress = Math.round((snapshot.bytesTransfered / snapshot.totalBytes) * 100)
-            //     this.setState({
-            //         progress: progress,
-            //     })
-            // }, 
-            // ()=>{
                 firebase.storage().ref(`images/${this.state.image.name}`).getDownloadURL().then((url)=>{
                     console.log(url)
                     var data = {
@@ -74,20 +52,20 @@ class UploadBtn extends React.Component{
                     
                     document.getElementById('show_upload').style.display='none';
                 })
-                
-                // }
-            // )
-            
+        }
+
+        const show_div = () =>{
+            document.getElementById('show_upload').style.display= 'flex';
         }
 
         return(
-            <span>
+            <span style={{marginLeft: 80}}>
                 <span>
-                    <button onClick={()=>{document.getElementById('show_upload').style.display='block'}}><i class="fa fa-plus"></i></button>
+                    <button onClick={show_div} className='upload_btn'><i class="fa fa-plus"></i></button>
                 </span>
-                <div id='show_upload' style={{display: 'none',}}>
+                <div className='upload_div' id='show_upload' style={{display: 'none',}}>
                     <input type='file' onChange={handleChange} />
-                    <button onClick={handleUpload}>Upload</button>
+                    <button onClick={handleUpload} style={{marginRight: 150}}>Upload</button>
                 </div>
             </span>
         )
@@ -96,7 +74,7 @@ class UploadBtn extends React.Component{
 const mapStateToProps = (state) => ({
     current_user: state.current_user,
     users: state.users
-})
+})  
 
 const mapDispatchToProps = (dispatch) => ({
     get_users: ()=> dispatch(get_users()),
