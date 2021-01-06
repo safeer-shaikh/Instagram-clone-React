@@ -5,6 +5,8 @@ import {get_users} from '../../store/Action'
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom'
 import beforeChat from '../../images/beforeChat.PNG'
+import firebase from 'firebase'
+import Input from '@material-ui/core/Input';
 
 class Chats extends React.Component{
     constructor(){
@@ -12,6 +14,7 @@ class Chats extends React.Component{
         this.state = {
             users: [],
             chat_with: {},
+            chats: [],
             message: '',
         }
     }
@@ -20,6 +23,43 @@ class Chats extends React.Component{
         this.setState({
             chat_with: person
         })
+        let current_user = this.props.current_user
+        let merge_uid = this.merge_uid(current_user.uid,person.uid)
+        console.log(merge_uid)
+        this.get_message(merge_uid)
+    }
+
+    send_message = () => {
+        this.setState({
+            message: '',
+        })
+        let user = this.props.current_user
+        let chat_with = this.state.chat_with
+        let merge_uid = this.merge_uid(user.uid,chat_with.uid)
+
+        firebase.database().ref('/').child(`chats/${merge_uid}`).push({
+            message: this.state.message,
+            name: user.name,
+            uid: user.uid
+        })
+    }
+
+    get_message = (uid) => {
+        firebase.database().ref('/').child(`chats/${uid}`).on("child_added",(messages)=>{
+            console.log("message===>",messages.val())
+            this.state.chats.push(messages.val())
+            this.setState({
+                chats: this.state.chats
+            })
+        })
+    }
+
+    merge_uid(uid1,uid2){
+        if(uid1 < uid2){
+            return uid1 + uid2
+        }else{
+            return uid2 + uid1
+        }
     }
 
     componentDidMount(){
@@ -67,36 +107,41 @@ class Chats extends React.Component{
                                 Object.keys(this.state.chat_with).length ?
                                 <div className='user-content' >
                                     <div className='user-content-div'>
-                                        <img src={this.state.chat_with.profile}  alt='profile' width='20' height='20'/>
-                                        <span>
-                                            {this.state.chat_with.name}
-                                        </span>
+                                        <div>
+                                            <img src={this.state.chat_with.profile}  alt='profile' width='20' height='20'/>
+                                            <span>
+                                                {this.state.chat_with.name}
+                                            </span>
+                                        </div>
                                     </div>
                                     <div className='chat-content'>
-                                        <ul>
+                                        <ul style={{listStyleType: 'none', padding: '0px 40px'}}>
                                         {
                                             this.state.chats.map((v,i)=>{
                                                 return(
-                                                    <li key={i} style={{color: v.uid === user.uid ? 'red' : "green",
-                                                    textAlign: v.uid === user.uid ? 'right' : 'left'}}>
-                                                        <span style={{backgroundColor: v.uid === user.uid ? 
-                                                            'darkblue' : 'white',
-                                                            color: v.uid === user.uid ?
-                                                            'white' : "black",
-                                                            borderBottomRightRadius: v.uid === user.uid ?
-                                                            '0px' : '9px',
-                                                            borderBottomLeftRadius: v.uid === user.uid ?
-                                                            '9px' : '0px',}}>
-                                                            {v.message}
-                                                        </span>
+                                                    <li key={i} style={{
+                                                        color: v.uid === user.uid ? '#303030' : "#303030",
+                                                        textAlign: v.uid === user.uid ? 'right' : 'left',
+                                                        marginTop: 20,
+
+                                                        }}>
+                                                            <span style={{
+                                                                backgroundColor: v.uid === user.uid ? '#EFEFEF' : 'white',
+                                                                border: '1px solid #EFEFEF',
+                                                                padding: '10px 15px',
+                                                                borderRadius: '25px',
+
+                                                                }}>
+                                                                {v.message}
+                                                            </span>
                                                     </li>
                                                 )
                                             })
                                         }
                                         </ul>
                                         <div className='input-things'>
-                                            {/* <Input className='input' value={this.state.message} onChange={(e)=>this.setState({message: e.target.value})} type='text' placeholder='type your message...'  inputProps={{ 'aria-label': 'description' }} /> */}
-                                            <button onClick={()=>this.send_message()}><i class="fa fa-paper-plane"></i></button>
+                                            <input className='input' value={this.state.message} onChange={(e)=>this.setState({message: e.target.value})} type='text' />
+                                            <button onClick={()=>this.send_message()}>Send</button>
                                         </div>
                                     </div>
                                 </div>
