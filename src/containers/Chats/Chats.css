@@ -1,11 +1,16 @@
 .main{
     background-color: #ffffff;
     height: 83vh;
+    display: flex;
 }
 .left_section{
-    max-width: 355px;
-    border-bottom: 1px solid #dbdbdb;
+    /* border-bottom: 1px solid #dbdbdb; */
     border-right: 1px solid #dbdbdb;
+    height: 83vh;
+    width: 550px;
+}
+.displayName_div{
+    border-bottom: 1px solid #dbdbdb;
 }
 .left_section div p{
     margin: 20px 0px;
@@ -14,5 +19,30 @@
     font-weight: 600;
 }
 .right_section{
-    background-color: tomato;
+    width: 100%;
+}
+.chatPerson_Btn:hover{
+   background-color: #dbdbdb;
+}
+.not-selected-div1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.not-selected-div1 img{
+    width: 100px;
+    align-self: center;
+    margin-top: 20%;
+}
+.not-selected-div1 button{
+    align-self: center;
+    width: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 10px;
+    background-color: #0095F6;
+    color: #ffffff;
+    border: 0px solid;
+    border-radius: 5px;
 }
